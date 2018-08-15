@@ -2,7 +2,7 @@
 'use strict';
 const meow = require('meow');
 const chalk = require('chalk');
-const CreateApp = require('./generator/lib/CreateApp');
+const CreateApp = require('../generator/lib/CreateApp');
 
 const args = process.argv;
 const command = args[2];
