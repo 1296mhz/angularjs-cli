@@ -71,8 +71,6 @@ class CreateApp {
         appCamelCase: this.appName
     }
     for (let i = 0; i < templateFiles.length; i++) {
-      console.log("Шаблон: ")
-      console.log(this.skeletonPath + "/" + templateFiles[i])
         let item = fs.readFileSync(this.skeletonPath + "/" + templateFiles[i], "utf8");
         let resultFileData = ejs.render(item, { tpldata: tplData});
         fs.writeFileSync(this.appName + "/" + templateFiles[i], resultFileData);
