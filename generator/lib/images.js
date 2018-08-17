@@ -1,6 +1,6 @@
 module.expoorts = [
     'src/app/img/icons/favorite.svg',
-    'src/img/app/icons/menu.svg',
-    'src/img/app/icons/more_vert.svg',
-    'src/img/app/icons/octicon_repo.svg'
+    'src/app/img/icons/menu.svg',
+    'src/app/img/icons/more_vert.svg',
+    'src/app/img/icons/octicon_repo.svg'
 ];

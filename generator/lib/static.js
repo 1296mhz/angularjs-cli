@@ -1,7 +1,7 @@
 module.exports = [
-    'webpack.config.js',
-    'prod.config.js',
-    '.babelrc',
-    '.gitignore',
+    'src/webpack.config.js',
+    'src/prod.config.js',
+    'src/.babelrc',
+    'src/.gitignore',
     'src/favicon.ico'
 ];

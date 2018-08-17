@@ -40,8 +40,8 @@ class CreateApp {
   getSkeletonPath() {
     let templatesPath = __dirname.split(path.sep);
     templatesPath.pop();
-    templatesPath.push("static");
-    templatesPath.push("skeleton");
+    //templatesPath.push("static");
+    //templatesPath.push("app");
     return templatesPath.join("/");
   }
 
@@ -71,6 +71,8 @@ class CreateApp {
         appCamelCase: this.appName
     }
     for (let i = 0; i < templateFiles.length; i++) {
+      console.log("Шаблон: ")
+      console.log(this.skeletonPath + "/" + templateFiles[i])
         let item = fs.readFileSync(this.skeletonPath + "/" + templateFiles[i], "utf8");
         let resultFileData = ejs.render(item, { tpldata: tplData});
         fs.writeFileSync(this.appName + "/" + templateFiles[i], resultFileData);
