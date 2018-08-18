@@ -12,7 +12,7 @@ module.exports = {
    "entry": {
       vendors: [
          "babel-polyfill",
-         "./src/js/app.module.js",
+         "./app/js/app.module.js",
       ]
    },
    "output": {
@@ -54,15 +54,14 @@ module.exports = {
          {
             loader: 'angularjs-template-loader',
             options: {
-               relativeTo: './src/js'
+               relativeTo: './app/js'
             }
          }
       ]
    },
    plugins: [
-      new CopyWebpackPlugin([{ from: 'dist/', to: '../../../server/dist'}], {
+      new CopyWebpackPlugin([{ from: 'index.html', to: '../'}, { from: 'app/img/icons/', to: '../img/icons/'}], {
          copyUnmodified: false,
-         //debug: 'info',
          context: './'
       }),
 

@@ -2,10 +2,10 @@ const fs = require("fs");
 const path = require("path");
 let ejs = require("ejs");
 
-const struct = require("./struct");
+const structDir = require("./dir");
 const staticFiles = require("./static");
 const templateFiles = require("./template");
-const imagesFiles = require("./images");
+const assetsFiles = require("./assets");
 
 class CreateApp {
   constructor(appName, flg) {
@@ -15,17 +15,12 @@ class CreateApp {
   }
 
   createSkeleteonDir() {
+    console.log("Createing directory...")
+    console.log(this.appName)
     fs.mkdirSync(this.appName);
-    fs.mkdirSync(this.appName + "/src");
-    fs.mkdirSync(this.appName + "/src/app");
-    fs.mkdirSync(this.appName + "/src/app/css");
-    fs.mkdirSync(this.appName + "/src/app/css/fonts");
-    fs.mkdirSync(this.appName + "/src/app/img");
-    fs.mkdirSync(this.appName + "/src/app/img/icons");
-    fs.mkdirSync(this.appName + "/src/app/js");
-
-    for (let i = 0; i < struct.length; i++) {
-      fs.mkdirSync(this.appName + "/src/app/js/" + struct[i]);
+    for (let i = 0; i < structDir.length; i++) {
+      console.log("Creating: " + structDir[i]);
+      fs.mkdirSync(this.appName + structDir[i]);
     }
 
     return true;
@@ -46,7 +41,9 @@ class CreateApp {
   }
 
   copyMainFiles() {
+    console.log("Copying main files...");
     for (let i = 0; i < staticFiles.length; i++) {
+      console.log("Copying: ", staticFiles[i]);
       fs.copyFileSync(
         this.skeletonPath + "/" + staticFiles[i],
         this.appName + "/" + staticFiles[i]
@@ -54,26 +51,30 @@ class CreateApp {
     }
   }
 
-  processingImagesFiles(){
-    for (let i = 0; i < imagesFiles.length; i++) {
-        console.log( this.skeletonPath + "/" + imagesFiles[i], "  ",
-        this.appName + "/" + imagesFiles[i]);
+  processingAssetsFiles() {
+    console.log("Copying assets files...")
+    for (let i = 0; i < assetsFiles.length; i++) {
+
+      console.log("Copying: ", this.appName + "/" + assetsFiles[i]);
+
       fs.copyFileSync(
-        this.skeletonPath + "/" + imagesFiles[i],
-        this.appName + "/" + imagesFiles[i]
+        this.skeletonPath + "/" + assetsFiles[i],
+        this.appName + "/" + assetsFiles[i]
       );
     }
   }
 
   processingTemplateFiles() {
+    console.log("Compiling files...")
     const tplData = {
-        appDashName: this.camelToDash(this.appName),
-        appCamelCase: this.appName
+      appDashName: this.camelToDash(this.appName),
+      appCamelCase: this.appName.trim()
     }
     for (let i = 0; i < templateFiles.length; i++) {
-        let item = fs.readFileSync(this.skeletonPath + "/" + templateFiles[i], "utf8");
-        let resultFileData = ejs.render(item, { tpldata: tplData});
-        fs.writeFileSync(this.appName + "/" + templateFiles[i], resultFileData);
+      console.log("Compiling: ", templateFiles[i])
+      let item = fs.readFileSync(this.skeletonPath + "/" + templateFiles[i], "utf8");
+      let resultFileData = ejs.render(item, { tpldata: tplData });
+      fs.writeFileSync(this.appName + "/" + templateFiles[i], resultFileData);
     }
   }
 }

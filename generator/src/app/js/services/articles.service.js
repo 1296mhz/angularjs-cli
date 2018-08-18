@@ -1,21 +1,21 @@
-_articlesHttpService.$inject = ['$http', 'apiServerHost'];
+_articlesHttpService.$inject = ['$http', 'appConstatnts'];
 
-function _articlesHttpService($http, apiServerHost) {
+function _articlesHttpService($http, appConstatnts) {
    return {
       getArticles: () => {
-         return $http.get('http://' + apiServerHost + '/api/v1/articles');
+         return $http.get('http://' + appConstatnts.apiServerHost + '/api/v1/articles');
       },
       getArticle: (id) => {
-         return $http.get('http://' + apiServerHost + '/api/v1/articles/' + id);
+         return $http.get('http://' + appConstatnts.apiServerHost + '/api/v1/articles/' + id);
       },
       addArticle: (data) => {
-         return $http.post('http://' + apiServerHost + '/api/v1/articles/', data);
+         return $http.post('http://' + appConstatnts.apiServerHost + '/api/v1/articles/', data);
       },
       updateArticle: (id, data) => {
-         return $http.put('http://' + apiServerHost + '/api/v1/articles/' + id, data);
+         return $http.put('http://' + appConstatnts.apiServerHost + '/api/v1/articles/' + id, data);
       },
       deleteArticle: (id) => {
-         return $http.delete('http://' + apiServerHost + '/api/v1/articles/' + id);
+         return $http.delete('http://' + appConstatnts.apiServerHost + '/api/v1/articles/' + id);
       }
    }
 };

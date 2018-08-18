@@ -1,10 +1,10 @@
-_profileHttpService.$inject = ["$http", "apiServerHost"];
+_profileHttpService.$inject = ["$http", "appConstatnts"];
 
-function _profileHttpService($http, apiServerHost) {
+function _profileHttpService($http, appConstatnts) {
 
   return {
     getProfile: () => {
-      return $http.get("http://" + apiServerHost + "/api/v1/profile",{ cache: true});
+      return $http.get("http://" + appConstatnts.apiServerHost + "/api/v1/profile",{ cache: true});
     }
   };
 }

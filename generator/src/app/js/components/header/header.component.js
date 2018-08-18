@@ -1,16 +1,16 @@
 
-_headerController.$inject = ['$rootScope', 'appTexts'];
+_headerController.$inject = ['$rootScope', 'appConstants'];
 
 let HeaderComponent = {
     template: require('./header.tmpl.html'),
     controller: _headerController
 };
 
-function _headerController($rootScope, appTexts) {
+function _headerController($rootScope, appConstants) {
     var $ctrl = this;
 
     $ctrl.page = {};
-    $ctrl.page.welcomeText = appTexts.welcomeText;
+    $ctrl.page.welcomeText = appConstants.welcomeText;
 
     $ctrl.logout = function(){
         window.location.assign("/logout")

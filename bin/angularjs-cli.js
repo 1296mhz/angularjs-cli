@@ -7,7 +7,6 @@ const CreateApp = require('../generator/lib/CreateApp');
 const args = process.argv;
 const command = args[2];
 
-//html = ejs.render('<%= people.join(", "); %>', {people: people});
 console.log(chalk.bgRed("Welocome to AngularJS CLI!"));
 
 const cli = meow(`
@@ -34,11 +33,11 @@ switch(cli.input[0]){
     console.log(chalk.red.bgWhite("Please your command!"))
     break;
     case 'new':
-    console.log(cli.input[1]);
+    //console.log(cli.input[1]);
     let createApp = new CreateApp(cli.input[1], cli.flags);
     createApp.createSkeleteonDir();
     createApp.copyMainFiles();
-    createApp.processingImagesFiles();
+    createApp.processingAssetsFiles();
     createApp.processingTemplateFiles();
     break;
     case 'n':

@@ -16,9 +16,10 @@ window.moment = moment;
 import "../../node_modules/angular-material/angular-material.css";
 import "../css/style.css";
 
-import apiServerHost from "./constants/apiServerHost.constant";
-import appTexts from "./constants/appTexts.constant";
+import appConstants from "./constants/app.constant";
+
 import routing from "./app.config";
+
 import "./components/screenContent/screenContent.component";
 import "./components/header/header.component";
 import "./components/sidebar/sidebar.component";
@@ -40,8 +41,8 @@ var appModule = angular
     "ConfigStorageService",
     "AppToastServiceModule",
   ])
+  .constant("appConstants", appConstants)
   .config(routing)
-  .constant("apiServerHost", apiServerHost)
-  .constant("appTexts", appTexts);
+  
 
 export default appModule;

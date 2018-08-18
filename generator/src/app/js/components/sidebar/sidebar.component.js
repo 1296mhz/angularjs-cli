@@ -3,7 +3,7 @@ _sidebarController.$inject = [
    '$rootScope', 
    '$mdSidenav',
    'configStorageService',
-   'appTexts'
+   'appConstants'
 ];
 
 let SidebarComponent = {
@@ -11,11 +11,11 @@ let SidebarComponent = {
    controller: _sidebarController
 };
 
-function _sidebarController($rootScope, $mdSidenav, configStorageService, appTexts) {
+function _sidebarController($rootScope, $mdSidenav, configStorageService, appConstants) {
    let $ctrl = this;
    $ctrl.config = {};
    $ctrl.page = {};
-   $ctrl.page.welcomeText = appTexts.welcomeText;
+   $ctrl.page.welcomeText = appConstants.welcomeText;
 
    $ctrl.links = [
       {

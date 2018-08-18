@@ -1,3 +1,3 @@
-# angularjs-material-webpack boilerplate
+# <%= tpldata.appDashName %>
 
-`npm install`
+`$ npm install`

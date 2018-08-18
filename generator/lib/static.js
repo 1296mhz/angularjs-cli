@@ -3,5 +3,18 @@ module.exports = [
     'src/prod.config.js',
     'src/.babelrc',
     'src/.gitignore',
-    'src/favicon.ico'
+    'src/favicon.ico',
+    'src/index.html',
+    'src/app/js/constants/app.constant.js',
+    'src/app/js/services/appToast.service.js',
+    'src/app/js/services/configStorage.service.js',
+    'src/app/js/components/about/about.component.js',
+    'src/app/js/components/about/about.tpl.html',
+    'src/app/js/components/header/header.component.js',
+    'src/app/js/components/header/header.tmpl.html',
+    'src/app/js/components/screenContent/screenContent.component.js',
+    'src/app/js/components/screenContent/screenContent.tmpl.html',
+    'src/app/js/components/sidebar/sidebar.component.js',
+    'src/app/js/components/sidebar/sidebar.css',
+    'src/app/js/components/sidebar/sidebar.tmpl.html'
 ];
